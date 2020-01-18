@@ -25,6 +25,7 @@ class HistoryPage extends React.Component {
   
   constructor(props) {
     super(props);
+    this.csvitems = [];
   }
   
 
@@ -119,7 +120,7 @@ class HistoryPage extends React.Component {
 		    	}
 			}**/
 			filteredData.unshift(filteredName);
-			
+			this.csvitems = filteredData;
 
 
 			//console.log(csvOutput);
@@ -182,7 +183,7 @@ class HistoryPage extends React.Component {
 						filterable={true}
 					/>
 				}
-				{full.items &&<CSVLink data={filteredData} uFEFF={false} type={'text/csv;charset=utf-8;'}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
+				{this.csvitems &&<CSVLink data={this.csvitems} uFEFF={false} type={'text/csv;charset=utf-8;'}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
 
 			</div>	
     );

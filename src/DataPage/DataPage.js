@@ -11,7 +11,8 @@ import 'react-table/react-table.css'
 import { CSVLink, CSVDownload } from "react-csv";
 
 class DataPage extends React.Component {
-	
+
+
   componentDidMount() {
         this.props.dispatch(userActions.getAll());
         this.props.dispatch(userActions.getHistory());
@@ -24,6 +25,7 @@ class DataPage extends React.Component {
   
   constructor(props) {
     super(props);
+    this.csvdata =[];
   }
   
   render() {
@@ -132,8 +134,7 @@ class DataPage extends React.Component {
 		    	}
 			}**/
 			filteredData1.unshift(filteredName);
-			
-
+			this.csvdata = filteredData1;
 
 			//console.log(csvOutput);
 			return output[x];
@@ -196,7 +197,7 @@ class DataPage extends React.Component {
 					/>	
 				}
 
-				{full.items &&<CSVLink data={filteredData1} uFEFF={false} type={'text/csv;charset=utf-8;'}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
+				{this.csvdata &&<CSVLink data={this.csvdata} uFEFF={false} type={'text/csv;charset=utf-8;'}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
 			</div>	
     );
   }
