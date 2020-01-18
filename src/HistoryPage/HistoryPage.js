@@ -8,6 +8,8 @@ import ReactTable from "react-table";
 
 import 'react-table/react-table.css'
 
+import { CSVLink, CSVDownload } from "react-csv";
+
 class HistoryPage extends React.Component {
 	
   componentDidMount() {
@@ -180,6 +182,8 @@ class HistoryPage extends React.Component {
 						filterable={true}
 					/>
 				}
+				{full.items &&<CSVLink data={filteredData} type={'text/csv;charset=utf-8;'}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
+
 			</div>	
     );
   }

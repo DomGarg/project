@@ -44,7 +44,7 @@ class DataPage extends React.Component {
 	let csvOutput = [];
 	let finalList = [[]];
 	let filteredName = [];
-	let filteredData = [];
+	let filteredData1 = [];
 	const columns = [
 
 	/**{
@@ -111,7 +111,7 @@ class DataPage extends React.Component {
 			console.log(filteredName)
 			for(var i = 0; i < csvOutput.length; i++){
 			//var myarray = ["nonsense", "goodpart", "nonsense2", "goodpar2t", "nonsense3", "goodpart3"],
-			  filteredData[i] = csvOutput[i].filter(function(el, index) {
+			  filteredData1[i] = csvOutput[i].filter(function(el, index) {
 			    // normally even numbers have the feature that number % 2 === 0;
 			    // JavaScript is, however, zero-based, so want those elements with a modulo of 1:
 			    return index % 2 === 1;
@@ -131,7 +131,7 @@ class DataPage extends React.Component {
 				    	}
 		    	}
 			}**/
-			filteredData.unshift(filteredName);
+			filteredData1.unshift(filteredName);
 			
 
 
@@ -196,7 +196,7 @@ class DataPage extends React.Component {
 					/>	
 				}
 
-				{full.items &&<CSVLink data={filteredData} type={'text/csv;charset=utf-8;'}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
+				{full.items &&<CSVLink data={filteredData1} type={'text/csv;charset=utf-8;'}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
 			</div>	
     );
   }
