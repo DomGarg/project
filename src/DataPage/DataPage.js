@@ -196,7 +196,7 @@ class DataPage extends React.Component {
 					/>	
 				}
 
-				{full.items &&<CSVLink data={filteredData}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
+				{full.items &&<CSVLink data={filteredData} type={'text/csv;charset=utf-8;'}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
 			</div>	
     );
   }
