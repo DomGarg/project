@@ -182,7 +182,7 @@ class HistoryPage extends React.Component {
 						filterable={true}
 					/>
 				}
-				{full.items &&<CSVLink data={filteredData} type={'text/csv;charset=utf-8;'}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
+				{full.items &&<CSVLink data={filteredData} uFEFF={false} type={'text/csv;charset=utf-8;'}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
 
 			</div>	
     );
