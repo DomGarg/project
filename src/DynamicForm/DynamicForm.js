@@ -16,7 +16,8 @@ class DynamicForm extends React.Component {
 	
     constructor(props) {
         super(props);
-        this.state ={};
+        this.state = {};
+        this.selected = {};
         console.log(this.state);
         this.showMap = false;
         this.onChange = this.onChange.bind(this);
@@ -67,12 +68,28 @@ class DynamicForm extends React.Component {
 	onChange(event) {
 		const target =  event.target;
 		const value = target.value;
-		const name = target.name
+		const name = target.name;
+		console.log(value);
 		// Update state to new value
 		this.setState({
 			[name]: value
 		});
 	}
+	
+	handleChange(event) {
+		const target =  event.target;
+		const name = target.name;
+		const value = target.value;
+	    if (target.checked) {
+	      this.selected[value] = true;
+	      this.selecte
+	    } else {
+	      delete this.selected[value];
+	    }
+    		this.setState({
+      		[name]: Object.keys(this.selected)
+    });
+  }
 
 
     renderForm() {
@@ -103,7 +120,7 @@ class DynamicForm extends React.Component {
                 />;
 
             
-            console.log(this.props.model);
+            
             if (type == "radio") {
                input = m.options.map((o) => {
                    let checked = o.value == value;
@@ -163,9 +180,9 @@ class DynamicForm extends React.Component {
                                 type="checkbox"
                                 key={o.key}
                                 name={name}
-                                checked={checked}
+                                checked={this.selected[value]}
                                 defaultValue={o.value}
-                                onChange={(e)=>{this.onChange(e, m.key,"multiple")}}
+                                onChange={(e)=>{this.handleChange(e, m.key,"multiple")}}
                             />
                             <label key={"ll" +o.key }>{o.label}</label>
                         </React.Fragment>

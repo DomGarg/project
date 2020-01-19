@@ -38,7 +38,7 @@ class DataPage extends React.Component {
 
 	//console.log(this.props.hist.items
 	console.log("hist stuff");
-	console.log(this.props);
+	console.log(this.props.full.items);
 	console.log("hist stuff");
 
 	var x = -1;
@@ -62,16 +62,16 @@ class DataPage extends React.Component {
         	//let i = 0;
 			var arrayLength = this.props.full.items.length;
         	for (var i = 0; i< arrayLength; i++) {
-        		console.log(this.props.full.items);
+        		
     			//if (this.props.hist.items[i].data !== 'undefined'){
-    				console.log(this.props.full.items[i].data);
+    				
     		
         	//for (let [key, value] of Object.entries(this.props.hist.items[i].data)) {
   			//outputWithin.push(`${key}:  ${value}` + " \ ");
 			//		}
 			for (const [key, value] of Object.entries(this.props.full.items[i].data)) {
   			outputWithin.push('  ' + `${key} —   ${value}` );
-  			console.log(key, value);
+  			
 			}
 			output.push(outputWithin);
 			//console.log(outputWithin);
@@ -79,21 +79,22 @@ class DataPage extends React.Component {
   			
 			}
 			x = x + 1;
-			console.log(output[0]);
+			
 			
 			//if (x.indexOf(':') !== -1) {
   			//split and get
   			var y = toString(output[x]);
   			var spliter = toString(y.split(':')[1]);
-  			console.log("yess");
+  			
   			var arrayOfStrings = output[x].toString().split('—');
   			//var arrayOfStringsAfter = arrayOfStrings.toString().split('||');
 
   			//console.log(arrayOfStringsAfter);
-  			console.log(arrayOfStrings.toString().split(','));
+  			
             //}
-            
-			csvOutput.push(arrayOfStrings.toString().split(','));
+            console.log("wow");
+			console.log(arrayOfStrings);       
+			csvOutput.push(arrayOfStrings.toString().split(', '));
 			var max = -Infinity;
 			var index = -1;
 			csvOutput.forEach(function(a, i){
@@ -102,7 +103,7 @@ class DataPage extends React.Component {
 			    index = i;
 			  }
 			});
-			console.log(csvOutput);
+			
 			//var myarray = ["nonsense", "goodpart", "nonsense2", "goodpar2t", "nonsense3", "goodpart3"],
 			  filteredName = csvOutput[index].filter(function(el, index) {
 			    // normally even numbers have the feature that number % 2 === 0;
@@ -110,7 +111,7 @@ class DataPage extends React.Component {
 			    return index % 2 === 0;
 			  });
 
-			console.log(filteredName)
+			
 			for(var i = 0; i < csvOutput.length; i++){
 			//var myarray = ["nonsense", "goodpart", "nonsense2", "goodpar2t", "nonsense3", "goodpart3"],
 			  filteredData1[i] = csvOutput[i].filter(function(el, index) {
@@ -133,6 +134,7 @@ class DataPage extends React.Component {
 				    	}
 		    	}
 			}**/
+			console.log(filteredData1);
 			filteredData1.unshift(filteredName);
 			this.csvdata = filteredData1;
 

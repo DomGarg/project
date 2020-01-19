@@ -8,7 +8,6 @@ import ReactTable from "react-table";
 
 import 'react-table/react-table.css'
 
-import { CSVLink, CSVDownload } from "react-csv";
 
 class HistoryPage extends React.Component {
 	
@@ -81,7 +80,7 @@ class HistoryPage extends React.Component {
   			//console.log(arrayOfStringsAfter);
             //}
             
-			csvOutput.push(arrayOfStrings.toString().split(','));
+			csvOutput.push(arrayOfStrings.toString().split(', '));
 			var max = -Infinity;
 			var index = -1;
 			csvOutput.forEach(function(a, i){
@@ -183,7 +182,6 @@ class HistoryPage extends React.Component {
 						filterable={true}
 					/>
 				}
-				{this.csvitems &&<CSVLink data={this.csvitems} uFEFF={false} type={'text/csv;charset=utf-8;'}><p style={{"fontSize": "20px"}}>Download CSV</p></CSVLink>}
 
 			</div>	
     );
