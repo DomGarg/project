@@ -4,7 +4,7 @@
 
 Publish Version 1.1.0
 
-**Authors :** xxxxx xxxxx (1), xxxxx xxxx (2), xxxxx xxxx (3)
+**Authors :** Dominic Gargala (1), Nathan Fallowfield (2), Paul Mensink (3)
 
 ## Project 
 
