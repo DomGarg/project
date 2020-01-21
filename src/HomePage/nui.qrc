@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="background">
+    <file>blue.png</file>
+  </qresource>
+  <qresource prefix="newPrefix"/>
+  <qresource prefix="newback">
+    <file>newbackground.jpg</file>
+  </qresource>
+</RCC>

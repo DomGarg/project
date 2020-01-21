@@ -15,6 +15,7 @@ import { history } from '../_helpers';
 export const userActions = {
 	login,
 	logout,
+	guestlogin,
 	register,
 	getAll,
 	submit,
@@ -52,6 +53,11 @@ function login(username, password) {
 function logout() {
 	userService.logout();
 	return { type: userConstants.LOGOUT };
+}
+
+function guestlogin(){
+	userService.guestlogin();
+	history.push('/home');
 }
 
 //Dispatch a register user request

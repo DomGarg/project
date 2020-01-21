@@ -4,6 +4,7 @@ import { authHeader } from '../_helpers';
 export const userService = {
     login,
     logout,
+    guestlogin,
     register,
     getAll,
     getById,
@@ -30,8 +31,8 @@ function login(username, password) {
             if (user.token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
-            }
-
+                
+            } 
             return user;
         });
 }
@@ -40,7 +41,9 @@ function logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
 }
-
+function guestlogin(){
+    localStorage.setItem('guest', true);
+}
 function getAll() {
     const requestOptions = {
         method: 'GET',

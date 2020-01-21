@@ -28,7 +28,10 @@ class App extends React.Component {
     render() {
         const { alert } = this.props;
         const loggedIn = localStorage.getItem('user');
-	console.log(loggedIn);
+
+        const guest = localStorage.getItem('guest');
+        console.log("here we are");
+		console.log(guest);
         var access;
         try {
            if (JSON.parse(loggedIn).adminAccess.toString() == adminAcc){
@@ -56,7 +59,7 @@ class App extends React.Component {
 								  </ul>
 								  <ul className="nav navbar-nav navbar-right" style={{"paddingRight":"15px", "paddingTop": "5px"}}>
 									<li><Link to={'/register'}><p style={{"fontSize": "20px"}}>Signup</p></Link></li>
-									{loggedIn&&<li><Link to={'/login'}><p style={{"fontSize": "20px"}}>Logout</p></Link></li>}
+									{(loggedIn)&&<li><Link to={'/login'}><p style={{"fontSize": "20px"}}>Logout</p></Link></li>}
 									{!loggedIn&&<li><Link to={'/login'}><p style={{"fontSize": "20px"}}>Login</p></Link></li>}
 								  </ul>
 								</nav>
