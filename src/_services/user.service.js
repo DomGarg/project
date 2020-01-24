@@ -113,7 +113,10 @@ function handleResponse(response) {
 
 function saveData(data) {
 	const user = localStorage.getItem('user');
+    const userId = "";
+    if (user!=null){
 	const userId = JSON.parse(user)._id;
+    }
 	const requestOptions = {
         method: 'POST',
         headers: { ...authHeader(), 'Content-Type': 'application/json' },
