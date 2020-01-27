@@ -175,7 +175,7 @@ function getImages() {
         headers: { ...authHeader()},
     };
     
-    return fetch(`${config.apiUrl}/fish.jpg`, requestOptions).then(handleImageResponse);
+    return fetch(`${config.apiUrl}/download.jpg`, requestOptions).then(handleImageResponse);
 }
 
 function handleImageResponse(response) {
